@@ -59,46 +59,4 @@ class Teacher extends model
 
     }
 
-    public function getUser($id)
-    {
-        $sql = "SELECT user FROM users WHERE id = '$id'";
-        $sql = $this->db->query($sql);
-
-        if ($sql->rowCount() > 0) {
-            $sql = $sql->fetch();
-
-            return $sql['user'];
-        } else {
-            return '';
-        }
-    }
-
-    public function getUserById($id)
-    {
-        $sql = "SELECT id FROM users WHERE id = '$id'";
-        $sql = $this->db->query($sql);
-
-        if ($sql->rowCount() > 0) {
-            $sql = $sql->fetch();
-
-            return $sql['id'];
-        } else {
-            return '';
-        }
-    }
-
-    public function getUsers()
-    {
-        $array = array();
-
-        $sql = "SELECT * FROM users";
-        $sql = $this->db->query($sql);
-
-        if ($sql->rowCount() > 0) {
-            $array = $sql->fetchAll();
-        }
-
-        return $array;
-    }
-
 }
