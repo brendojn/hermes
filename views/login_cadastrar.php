@@ -7,19 +7,6 @@
 	    <link href="<?php echo BASE_URL; ?>assets/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<div id="navbar">
-					<ul class="nav navbar-nav navbar-left">
-						<li><a href="<?php echo BASE_URL; ?>">Hermes</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="<?php echo BASE_URL; ?>login/enter">Login</a></li>
-						<li><a href="<?php echo BASE_URL; ?>login/add">Cadastrar</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
 		<div class="container">
 	        <h1>Cadastrar</h1>
             <br/>

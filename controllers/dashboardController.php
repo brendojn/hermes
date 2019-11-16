@@ -1,8 +1,7 @@
 <?php
 
-class homeController extends controller
+class dashboardController extends controller
 {
-
     public function __construct()
     {
         $u = new Teacher();
@@ -11,7 +10,7 @@ class homeController extends controller
 
     public function index()
     {
-        header("Location: ". BASE_URL . "dashboard");
+        $this->loadTemplate('dashboard');
     }
 
 }

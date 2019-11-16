@@ -4,7 +4,7 @@ class loginController extends controller {
     public function index() {
         $data = array();
         
-        $this->loadView('login', $data);
+        $this->loadTemplate('login', $data);
     }
 
     public function enter() {
@@ -18,7 +18,7 @@ class loginController extends controller {
     		$data['erro'] = $u->login($email, $password);
     	}
 
-    	$this->loadView('login_entrar', $data);
+    	$this->loadTemplate('login_entrar', $data);
     }
 
     public function add() {
@@ -36,7 +36,7 @@ class loginController extends controller {
     		$data['erro'] = $t->addUser($name, $email, $subject, $registration, $password, $isAdmin);
     	}
 
-    	$this->loadView('login_cadastrar', $data);
+    	$this->loadTemplate('login_cadastrar', $data);
     }
 
     public function sair() {
