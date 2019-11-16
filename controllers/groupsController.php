@@ -46,10 +46,14 @@ class groupsController extends controller {
     }
 
     public function edit($id) {
-        $data = array();
+        $data = array(
+            'teacher_name' => ''
+        );
 
         $g = new Group();
         $t = new Teacher();
+
+        $data['teacher_name'] = $t->getName($_SESSION['logged']);
 
         if (isset($_POST['name']) && !empty($_POST['name'])) {
             $name = addslashes($_POST['name']);
