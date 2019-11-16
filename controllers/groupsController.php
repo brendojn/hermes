@@ -3,7 +3,7 @@ class groupsController extends controller {
 
     public function __construct()
     {
-        $u = new User();
+        $u = new Teacher();
         $u->verifyLogin();
     }
 
@@ -13,6 +13,23 @@ class groupsController extends controller {
         $this->loadTemplate('class', $data);
     }
 
+    public function add() {
+        $data = array();
+
+        $this->loadTemplate('class', $data);
+    }
+
+    public function update() {
+        $data = array();
+
+        $this->loadTemplate('class', $data);
+    }
+
+    public function delete() {
+        $data = array();
+
+        $this->loadTemplate('class', $data);
+    }
 
 
 
