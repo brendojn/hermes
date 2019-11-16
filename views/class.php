@@ -36,7 +36,7 @@ if (empty($_SESSION['logged'])) {
                 <td>
                         <a href="<?php echo BASE_URL; ?>groups/edit/<?php echo $group['id']; ?>"
                            class="btn btn-default">Editar</a>
-                        <a href="groups/delete?group=<?php echo $group['id']; ?>"
+                        <a href="groups/delete/<?php echo $group['id']; ?>"
                            class="btn btn-danger">Excluir</a>
                 </td>
             </tr>

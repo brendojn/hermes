@@ -1,6 +1,12 @@
 <?php
 class studentsController extends controller {
 
+    public function __construct()
+    {
+        $t = new Teacher();
+        $t->verifyLogin();
+    }
+
     public function index() {
         $data = array(
             'teacher_name' => ''

@@ -5,8 +5,8 @@ class homeController extends controller
 
     public function __construct()
     {
-        $u = new Teacher();
-        $u->verifyLogin();
+        $t = new Teacher();
+        $t->verifyLogin();
     }
 
     public function index()

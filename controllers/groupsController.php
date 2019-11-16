@@ -3,8 +3,8 @@ class groupsController extends controller {
 
     public function __construct()
     {
-        $u = new Teacher();
-        $u->verifyLogin();
+        $t = new Teacher();
+        $t->verifyLogin();
     }
 
     public function index() {
@@ -45,16 +45,34 @@ class groupsController extends controller {
         $this->loadTemplate('add-class', $data);
     }
 
-    public function update() {
+    public function edit($id) {
         $data = array();
 
-        $this->loadTemplate('class', $data);
+        $g = new Group();
+        $t = new Teacher();
+
+        if (isset($_POST['name']) && !empty($_POST['name'])) {
+            $name = addslashes($_POST['name']);
+            $description = addslashes($_POST['description']);
+            $teacher = addslashes($_POST['responsibility']);
+
+            $data['erro'] = $g->editGroup($id, $name, $description, $teacher);
+        }
+
+        $data['teachers'] = $t->getTeachers();
+        $data['getGroup'] = $g->getGroup($id);
+        $data['teacherGroup'] = $g->getTeacherGroup($id);
+
+        $this->loadTemplate('edit-class', $data);
     }
 
-    public function delete() {
-        $data = array();
+    public function delete($id) {
+        $g = new Group();
 
-        $this->loadTemplate('class', $data);
+        $g->deleteGroup($id);
+
+
+        header("Location: " . BASE_URL . "groups");
     }
 
 

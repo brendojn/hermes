@@ -27,7 +27,7 @@ if (empty($_SESSION['logged'])) {
                 <?php
                 foreach ($teachers as $teacher):
                     ?>
-                    <option value="<?php echo $teacher['id']; ?>"><?php echo utf8_encode($teacher['name']); ?></option>
+                    <option value="<?php echo $teacher['id']; ?>"><?php echo utf8_encode($teacher['name_teacher']); ?></option>
                 <?php
                 endforeach;
                 ?>
