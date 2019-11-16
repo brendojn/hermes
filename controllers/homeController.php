@@ -17,7 +17,7 @@ class homeController extends controller
         $t = new Teacher();
         $data['teacher_name'] = $t->getName($_SESSION['logged']);
 
-        $this->loadTemplate('dashboard', $data);
+        $this->loadTemplate('home', $data);
     }
 
 }

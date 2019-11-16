@@ -10,7 +10,6 @@ class Teacher extends model
             header("Location: " . BASE_URL . "login");
             exit;
         }
-
     }
 
     public function login($email, $password)

@@ -2,7 +2,13 @@
 class studentsController extends controller {
 
     public function index() {
-        $data = array();
+        $data = array(
+            'teacher_name' => ''
+        );
+
+        $t = new Teacher();
+
+        $data['teacher_name'] = $t->getName($_SESSION['logged']);
 
         $this->loadTemplate('students', $data);
     }

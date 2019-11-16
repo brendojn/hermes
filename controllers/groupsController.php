@@ -8,10 +8,15 @@ class groupsController extends controller {
     }
 
     public function index() {
-        $data = array();
+
+        $data = array(
+            'teacher_name' => ''
+        );
 
         $g = new Group();
         $t = new Teacher();
+
+        $data['teacher_name'] = $t->getName($_SESSION['logged']);
 
         $groups = $g->getGroups();
 
