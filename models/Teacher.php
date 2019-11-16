@@ -74,12 +74,12 @@ class Teacher extends model
 
     public function getName($id)
     {
-        $sql = "SELECT name FROM teacher WHERE id = '$id'";
+        $sql = "SELECT name_teacher FROM teacher WHERE id = '$id'";
         $sql = $this->db->query($sql);
 
         if ($sql->rowCount() > 0) {
             $sql = $sql->fetch();
-            return $sql['name'];
+            return $sql['name_teacher'];
         } else {
             return '';
         }
