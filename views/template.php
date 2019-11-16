@@ -19,7 +19,16 @@
         <ul class="nav navbar-nav navbar-right">
             <?php if (isset($_SESSION['logged']) && !empty($_SESSION['logged'])): ?>
                 <li><a href="<?php echo BASE_URL; ?>groups">Turmas</a></li>
-                <li><a href="<?php echo BASE_URL; ?>login/sair">Sair</a></li>
+                <li><a href="<?php echo BASE_URL; ?>students">Alunos</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <?php echo $viewData['teacher_name']; ?>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo BASE_URL; ?>login/sair">Sair</a></li>
+                    </ul>
+                </li>
             <?php else: ?>
                 <li><a href="<?php echo BASE_URL; ?>login/enter">Login</a></li>
                 <li><a href="<?php echo BASE_URL; ?>login/add">Cadastre-se</a></li>

@@ -11,7 +11,13 @@ class homeController extends controller
 
     public function index()
     {
-        header("Location: ". BASE_URL . "dashboard");
+        $data = array(
+            'teacher_name' => ''
+        );
+        $t = new Teacher();
+        $data['teacher_name'] = $t->getName($_SESSION['logged']);
+
+        $this->loadTemplate('dashboard', $data);
     }
 
 }

@@ -33,7 +33,7 @@ class loginController extends controller {
     		$isAdmin = addslashes($_POST['admin']);
 
     		$t = new Teacher();
-    		$data['erro'] = $t->addUser($name, $email, $subject, $registration, $password, $isAdmin);
+    		$data['erro'] = $t->addTeacher($name, $email, $subject, $registration, $password, $isAdmin);
     	}
 
     	$this->loadTemplate('login_cadastrar', $data);

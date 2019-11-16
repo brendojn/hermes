@@ -1,8 +1,7 @@
 <?php
 
-class Teacher extends model
+class Student extends model
 {
-
     public function verifyLogin()
     {
 
@@ -13,26 +12,7 @@ class Teacher extends model
 
     }
 
-    public function login($email, $password)
-    {
-
-        $sql = "SELECT * FROM teacher WHERE email = '$email' AND password = '$password'";
-        $sql = $this->db->query($sql);
-
-        if ($sql->rowCount() > 0) {
-            $sql = $sql->fetch();
-
-            $_SESSION['logged'] = $sql['id'];
-
-            header("Location: " . BASE_URL);
-            exit;
-        } else {
-            return "E-mail e/ou senha errados!";
-        }
-
-    }
-
-    public function addTeacher($name, $email, $subject, $registration, $password, $isAdmin)
+    public function addStudent($name, $email, $subject, $registration, $password, $isAdmin)
     {
 
         $sql = "SELECT * FROM teacher WHERE email = '$email'";
@@ -83,8 +63,6 @@ class Teacher extends model
         } else {
             return '';
         }
-
-
     }
 
 }
