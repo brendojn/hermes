@@ -12,37 +12,31 @@ class Student extends model
 
     }
 
-    public function addStudent($name, $email, $subject, $registration, $password, $isAdmin)
+    public function addStudent($name, $email, $period, $registration, $password, $group)
     {
 
-        $sql = "SELECT * FROM teacher WHERE email = '$email'";
+        $sql = "SELECT * FROM student WHERE email = '$email'";
         $sql = $this->db->query($sql);
 
-        if ($isAdmin == '') {
-            $isAdmin = 0;
-        } else {
-            $isAdmin = 1;
-        }
-
         if ($sql->rowCount() == 0) {
-            $sql = "INSERT INTO teacher SET name = '$name', email = '$email', password = MD5('$password'), subject = '$subject', registration = '$registration', admin = '$isAdmin'";
+            $sql = "INSERT INTO student SET name_student = '$name', email = '$email', password = MD5('$password'), period = '$period', registration = '$registration', fk_group_id = '$group'";
             $sql = $this->db->query($sql);
 
-            $id = $this->db->lastInsertId();
-            $_SESSION['logged'] = $id;
-
-            header("Location: " . BASE_URL);
+            header("Location: " . BASE_URL . "students");
 
         } else {
             return "E-mail já está cadastrado!";
         }
     }
 
-    public function getTeachers()
+    public function getStudents()
     {
         $array = array();
 
-        $sql = "SELECT * FROM teacher";
+        $sql = "SELECT s.name_student, s.email, s.password, s.period, s.registration, s.fk_group_id, g.name_group FROM hermes.student s
+                JOIN hermes.group g
+                ON g.id = s.fk_group_id
+                ";
         $sql = $this->db->query($sql);
 
         if ($sql->rowCount() > 0) {
@@ -54,7 +48,7 @@ class Student extends model
 
     public function getName($id)
     {
-        $sql = "SELECT name FROM teacher WHERE id = '$id'";
+        $sql = "SELECT name FROM student WHERE id = '$id'";
         $sql = $this->db->query($sql);
 
         if ($sql->rowCount() > 0) {
@@ -63,6 +57,10 @@ class Student extends model
         } else {
             return '';
         }
+    }
+
+    public function getGroupStudent() {
+
     }
 
 }
