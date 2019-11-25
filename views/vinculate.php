@@ -13,17 +13,17 @@ if (empty($_SESSION['logged'])) {
 
         <div class="form-group">
             <label for="txtName">Nome da turma:</label>
-            <input type="text" name="name" id="txtName" class="form-control" value="<?php echo $getGroup['name_group'] ?>" disabled/>
+            <input type="text" name="name" id="txtName" class="form-control" value="<?php echo $getGroup['name_group'] ?>" readonly="readonly"/>
         </div>
 
         <div class="form-group">
             <label for="txtDescription">Descrição da turma:</label>
-            <input type="text" name="description" id="txtDescription" class="form-control" value="<?php echo $getGroup['description'] ?>" disabled/>
+            <input type="text" name="description" id="txtDescription" class="form-control" value="<?php echo $getGroup['description'] ?>" readonly="readonly"/>
         </div>
 
         <div class="form-group">
             <label for="selectResponsibility">Professor Responsável:</label>
-            <select name="responsibility" id="selectResponsibility" class="form-control" disabled>
+            <select name="responsibility" id="selectResponsibility" class="form-control" readonly="readonly">
                 <?php
                 foreach ($teachers as $teacher):
                     ?>
