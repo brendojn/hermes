@@ -32,11 +32,14 @@ CREATE TABLE IF NOT EXISTS `group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name_group` varchar(80) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
+  `fk_trail_id` int(11) DEFAULT NULL,
   `fk_teacher_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_teacher_id` (`fk_teacher_id`),
-  CONSTRAINT `fk_teacher_id` FOREIGN KEY (`fk_teacher_id`) REFERENCES `teacher` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  KEY `fk_trail_id` (`fk_trail_id`),
+  CONSTRAINT `fk_teacher_id` FOREIGN KEY (`fk_teacher_id`) REFERENCES `teacher` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_trail_id` FOREIGN KEY (`fk_trail_id`) REFERENCES `trail` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 
@@ -74,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`id`),
   KEY `fk_group_id` (`fk_group_id`),
   CONSTRAINT `fk_group_id` FOREIGN KEY (`fk_group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 
@@ -88,16 +91,30 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `registration` int(11) DEFAULT NULL,
   `admin` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela hermes.trail
 CREATE TABLE IF NOT EXISTS `trail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(80) DEFAULT NULL,
+  `name_trail` varchar(80) DEFAULT NULL,
   `description` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela hermes.trails_pronouncements
+CREATE TABLE IF NOT EXISTS `trails_pronouncements` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `fk_pronouncement_id` int(11) DEFAULT NULL,
+  `fk_trail_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pronouncement_id` (`fk_pronouncement_id`),
+  KEY `fk1_trail_id` (`fk_trail_id`),
+  CONSTRAINT `fk1_trail_id` FOREIGN KEY (`fk_trail_id`) REFERENCES `trail` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_pronouncement_id` FOREIGN KEY (`fk_pronouncement_id`) REFERENCES `pronouncement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
