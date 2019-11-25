@@ -22,6 +22,7 @@ if (empty($_SESSION['logged'])) {
     <tr>
         <th>Nome</th>
         <th>Descrição</th>
+        <th>Ações</th>
     </tr>
     </thead>
     <?php
@@ -30,6 +31,10 @@ if (empty($_SESSION['logged'])) {
         <tr>
             <td><?php echo $trail['name_trail']; ?></td>
             <td><?php echo $trail['description']; ?></td>
+            <td>
+                <a href="<?php echo BASE_URL; ?>pronouncement/add/<?php echo $trail['id']; ?>"
+                   class="btn btn-default">Cadastrar Pronunciamentos</a>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>
