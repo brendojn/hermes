@@ -32,7 +32,7 @@ if (empty($_SESSION['logged'])) {
             <tr>
                 <td><?php echo $group['name_group']; ?></td>
                 <td><?php echo $group['name_teacher']; ?></td>
-                <td></td>
+                <td><?php echo $numberStudents['qtd']; ?></td>
                 <td>
                         <a href="<?php echo BASE_URL; ?>groups/edit/<?php echo $group['id']; ?>"
                            class="btn btn-default">Editar</a>

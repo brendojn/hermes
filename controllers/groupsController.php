@@ -15,16 +15,19 @@ class groupsController extends controller {
 
         $g = new Group();
         $t = new Teacher();
+        $s = new Student();
         $tr = new Trail();
 
         $data['teacher_name'] = $t->getName($_SESSION['logged']);
 
         $groups = $g->getGroups();
+        $numberStudents = $g->getNumberStudent();
         $numberTrails = $tr->getNumberTrails();
 
         $data['numberTrails'] = $numberTrails;
 
         $data['groups'] = $groups;
+        $data['numberStudents'] = $groups;
 
 
         $this->loadTemplate('class', $data);

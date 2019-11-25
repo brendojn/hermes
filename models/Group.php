@@ -87,9 +87,24 @@ class Group extends model
         header("Location: " . BASE_URL . "groups");
     }
 
-    public function deleteGroup($id) {
+    public function deleteGroup($id)
+    {
 
         $sql = "DELETE FROM hermes.group WHERE id = '$id'";
         $sql = $this->db->query($sql);
+    }
+
+    public function getNumberStudent()
+    {
+        $sql = "SELECT COUNT(*) as qtd FROM hermes.`group` g
+                JOIN student s
+                ON s.fk_group_id = g.id
+                ";
+
+        $sql = $this->db->query($sql);
+
+        $result = $sql->fetchAll();
+
+        return $result['qtd'];
     }
 }

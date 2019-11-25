@@ -59,8 +59,4 @@ class Student extends model
         }
     }
 
-    public function getGroupStudent() {
-
-    }
-
 }
