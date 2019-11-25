@@ -19,6 +19,7 @@
         <ul class="nav navbar-nav navbar-right">
             <?php if (isset($_SESSION['logged']) && !empty($_SESSION['logged'])): ?>
                 <li><a href="<?php echo BASE_URL; ?>groups">Turmas</a></li>
+                <li><a href="<?php echo BASE_URL; ?>trails">Trilhas</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <?php echo $viewData['teacher_name']; ?>

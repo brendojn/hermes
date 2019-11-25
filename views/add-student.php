@@ -60,5 +60,4 @@ if (empty($_SESSION['logged'])) {
 
         <input type="submit" value="Adicionar" class="btn btn-default"/>
     </form>
-
 </div>

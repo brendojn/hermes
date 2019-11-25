@@ -69,7 +69,7 @@ class Group extends model
         return $array;
     }
 
-    public function editGroup($id, $name, $description, $teacher)
+    public function editGroup($id, $name, $description, $teacher, $trail = null)
     {
         $array = array();
 
@@ -80,7 +80,7 @@ class Group extends model
             $array = $sql->fetch();
         }
 
-        $sql = "UPDATE hermes.group SET name_group = '$name', description = '$description', fk_teacher_id = '$teacher' WHERE id = '$id'";
+        $sql = "UPDATE hermes.group SET name_group = '$name', description = '$description', fk_ trail_id = '$trail', fk_teacher_id = '$teacher' WHERE id = '$id'";
 
         $sql = $this->db->query($sql);
 

@@ -38,6 +38,10 @@ if (empty($_SESSION['logged'])) {
                            class="btn btn-default">Editar</a>
                         <a href="groups/delete/<?php echo $group['id']; ?>"
                            class="btn btn-danger">Excluir</a>
+                        <?php if ($numberTrails > 0) : ?>
+                        <a href="groups/vinculate/<?php echo $group['id']; ?>"
+                       class="btn btn-primary">Vincular trilha</a>
+                        <?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>

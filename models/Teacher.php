@@ -2,7 +2,6 @@
 
 class Teacher extends model
 {
-
     public function verifyLogin()
     {
 
@@ -14,7 +13,6 @@ class Teacher extends model
 
     public function login($email, $password)
     {
-
         $sql = "SELECT * FROM teacher WHERE email = '$email' AND password = '$password'";
         $sql = $this->db->query($sql);
 
@@ -28,7 +26,6 @@ class Teacher extends model
         } else {
             return "E-mail e/ou senha errados!";
         }
-
     }
 
     public function addTeacher($name, $email, $subject, $registration, $password, $isAdmin)
@@ -44,7 +41,7 @@ class Teacher extends model
         }
 
         if ($sql->rowCount() == 0) {
-            $sql = "INSERT INTO teacher SET name = '$name', email = '$email', password = MD5('$password'), subject = '$subject', registration = '$registration', admin = '$isAdmin'";
+            $sql = "INSERT INTO teacher SET name_teacher = '$name', email = '$email', password = MD5('$password'), subject = '$subject', registration = '$registration', admin = '$isAdmin'";
             $sql = $this->db->query($sql);
 
             $id = $this->db->lastInsertId();
@@ -82,8 +79,6 @@ class Teacher extends model
         } else {
             return '';
         }
-
-
     }
 
 }
